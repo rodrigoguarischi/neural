@@ -1,5 +1,5 @@
 # Using alpine as base image due to small size
-FROM alpine
+FROM alpine:latest
 
 # My contact
 MAINTAINER Rodrigo Guarischi <rodrigoguarischi@gmail.com>

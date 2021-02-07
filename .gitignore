@@ -1,0 +1,7 @@
+# Ignore .swp files from vim and DS_Store from Mac
+*.swp
+*.DS_Store
+
+# Ignore uploaded files to stage folder, keeping only .gitkeep to force dir tracking
+stage/*
+!stage/.gitkeep 
