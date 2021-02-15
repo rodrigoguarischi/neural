@@ -50,3 +50,29 @@ multiple containers using the following command
 ```console
 docker run --rm -it -v ${PWD}/stage/:/stage --link image_resizing_rest_api image_resizing:0.1
 ```
+
+### Testing the application
+
+Once you have the API container and at least on image resizing container up and running, you may test the application
+by POSTing a image on the **/file-upload** endpoint at **localhost** (if you application was deployed locally). 
+For this test, we will be using [PostMan](https://www.postman.com/ "Postman website").
+
+Make sure PostMan is installed on your machine. Open it and configure it to:
+
+ 1. Select **POST** method and use the endpoint **http://localhost:5000/file-upload** (if deployed locally),
+ 1. Select **form-data**, 
+ 1. Select the gray arrow on the right of the field and mark **file** checkbox,
+ 1. **Choose files** to be uploaded
+ 1. Hit **Send** 
+
+If everything goes as expected, you should see a success message similar to the one bellow
+
+[success message](./gfx/postman_success.jpg)
+
+All images will be saved on the **stage** folder. Resized images will be saved on its subfolder **/stage/resized**
+
+If something goes wrong during submission (eg. an invalid file format was submitted), you should see a exit code 400 and
+a message highlighting the cause of error:
+
+[fail_message](./gfx/postman_fail.jpg)
+

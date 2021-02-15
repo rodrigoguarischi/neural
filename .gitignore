@@ -4,4 +4,5 @@
 
 # Ignore uploaded files to stage folder, keeping only .gitkeep to force dir tracking on git
 stage/*
-!stage/.gitkeep 
+!stage/.gitkeep
+!stage/resized/.gitkeep 
