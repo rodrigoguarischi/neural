@@ -38,7 +38,7 @@ git clone https://gitlab.com/rodrigoguarischi/neural.git
 **IMPORTANT:** this will create a folder called **neural** on your current folder. All the 
 following commands **MUST be run** inside this folder, otherwise the application may not work
 as expected. To mitigate errors, let's save this path on a variable called **BASEDIR** and 
-run it everytime:
+**cd** it everytime:
 
 ```console
 BASEDIR="${PWD}/neural"
