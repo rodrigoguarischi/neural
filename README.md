@@ -18,9 +18,22 @@ Development should be done in Python. The project must be delivered with Docker.
 and maintenance of the code?
 - How can the system scale with the planned architecture?
 
-# The solution 
+# The solution
+
+## Requirements
+
+In order to run, we need the following softwares installed on your computer:
+ - Git version 2.21.0 or above
+ - Docker version 20.10.0 or above
+ - PostMan version 5.5.5 or above (for testing only)
 
 ## Installation
+
+Let's start by cloning the app from repo:
+
+```console 
+git clone https://gitlab.com/rodrigoguarischi/neural.git
+```
 
 ### REST API
 Build a image that will be used as REST API using Dockerfile inside folder ./rest_api
