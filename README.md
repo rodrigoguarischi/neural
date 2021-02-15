@@ -35,15 +35,26 @@ Let's start by cloning the app from repo:
 git clone https://gitlab.com/rodrigoguarischi/neural.git
 ```
 
+**IMPORTANT:** this will create a folder called **neural** on your current folder. All the 
+following commands **MUST be run** inside this folder, otherwise the application may not work
+as expected. To mitigate errors, let's save this path on a variable called **BASEDIR** and 
+run it everytime:
+
+```console
+BASEDIR="${PWD}/neural"
+```
+
 ### REST API
 Build a image that will be used as REST API using Dockerfile inside folder ./rest_api
 ```console
-docker build -t rest_api:0.1 ./rest_api/
+cd ${BASEDIR}; 
+docker build -t rest_api:0.1 ./rest_api/;
 ```
 
 ### Image Resizing
 Build a image that will be used for image resizing using Dockerfile inside folder ./image_resizing
 ```console
+cd ${BASEDIR};
 docker build -t image_resizing:0.1 ./image_resizing/
 ```
 
@@ -54,6 +65,7 @@ The application needs one (and only one) rest api container running in order to 
 This container will be named as **image_resizing_rest_api**, so other containers in the network can
 find it and connect to it. 
 ```console
+cd ${BASEDIR};
 docker run --rm -it -v ${PWD}/stage/:/stage --name image_resizing_rest_api -p 5000:5000 -p 5672:5672 -p 15672:15672 rest_api:0.1
 ```
 
@@ -61,6 +73,7 @@ docker run --rm -it -v ${PWD}/stage/:/stage --name image_resizing_rest_api -p 50
 You can launch as many image resizing containers as you want (consumers in RabbitMQ terms) by launching 
 multiple containers using the following command
 ```console
+cd ${BASEDIR};
 docker run --rm -it -v ${PWD}/stage/:/stage --link image_resizing_rest_api image_resizing:0.1
 ```
 
