@@ -53,7 +53,7 @@ docker run --rm -it -v ${PWD}/stage/:/stage --link image_resizing_rest_api image
 
 ### Testing the application
 
-Once you have the API container and at least on image resizing container up and running, you may test the application
+Once you have the API container and at least one image resizing container up and running, you may test the application
 by POSTing a image on the **/file-upload** endpoint at **localhost** (if you application was deployed locally). 
 For this test, we will be using [PostMan](https://www.postman.com/ "Postman website").
 
@@ -67,12 +67,12 @@ Make sure PostMan is installed on your machine. Open it and configure it to:
 
 If everything goes as expected, you should see a success message similar to the one bellow
 
-[success message](./gfx/postman_success.jpg)
+![success message](./gfx/postman_success.jpg "Successful PostMan submission")
 
 All images will be saved on the **stage** folder. Resized images will be saved on its subfolder **/stage/resized**
 
 If something goes wrong during submission (eg. an invalid file format was submitted), you should see a exit code 400 and
 a message highlighting the cause of error:
 
-[fail_message](./gfx/postman_fail.jpg)
+![fail_message](./gfx/postman_fail.jpg "Failed PostMan submission due to invalid image format")
 

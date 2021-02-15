@@ -2,7 +2,12 @@
 *.swp
 *.DS_Store
 
-# Ignore uploaded files to stage folder, keeping only .gitkeep to force dir tracking on git
+# Ignore uploaded files to stage folder, keeping only .gitkeep and resized to force dir tracking on git
+!stage/
+
 stage/*
 !stage/.gitkeep
+
+stage/resized/*
+!stage/resized/
 !stage/resized/.gitkeep 
